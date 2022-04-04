@@ -1,5 +1,6 @@
-{{ if site.Data.homepage.pricing.enable }}
-{{ with site.Data.homepage.pricing }}
+{{ range $pricing_section := site.Data.homepage.pricing_sections }}
+{{ if $pricing_section.enable }}
+{{ with $pricing_section }}
 <section id="price">
 	<div class="container">
 		<div class="row">
@@ -33,5 +34,6 @@
 		</div><!-- .row close -->
 	</div><!-- .containe close -->
 </section><!-- #price close -->
+{{end}}
 {{end}}
 {{end}}
