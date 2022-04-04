@@ -2,9 +2,21 @@
 {{ if site.Data.homepage.hero_area.enable }}
 {{ with site.Data.homepage.hero_area }}
 <section id="hero-area" {{ if .overlay }} class="overlay" {{ end }}>
-	<div class="fill-sreen">
-  <img class="img-responsive-banner" src="{{ .bg_image | absURL }}">
+	{{ $bg_images := site.Data.homepage.hero_area.bg_image }}
+	{{if eq (len $bg_images) 1}}
+	  <img class="img-responsive-banner" src="{{ index $bg_images 0 | absURL }}">
+	{{ else if (eq (len $bg_images) 2) }}
+	 <div class="row">
+		  <div class="column">
+			    <img class="img-responsive-banner" src="{{ index $bg_images 0 | absURL }}" alt="First Banner Image" style="width:100%">
+		  </div>
+		  <div class="column">
+			    <img  class="img-responsive-banner" src="{{ index $bg_images 1 | absURL }}" alt="Second Banner Image" style="width:100%">
+		  </div>
 	</div>
+	{{ else }}
+	<h3> Multiple Images </h3>
+	{{end}}
 </section>
 {{ end }}
 {{ end }}

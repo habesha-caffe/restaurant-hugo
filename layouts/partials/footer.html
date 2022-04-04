@@ -19,15 +19,9 @@
 			</div>
 			<!-- .col-md-4 close -->
 				{{ if site.Params.footer_image.enable }}
-			<div class="col-md-4">
-				<div class="block wow fadeInLeft" data-wow-delay="200ms">
 					{{with site.Params.footer_image.image}}
-					<div class="blog">
 						<img class="footer-image" src="{{. | absURL}}" alt="Footer Image">
-					</div>
 					{{end}}
-				</div>
-			</div>
 				{{ else }}
 			<div class="col-md-4">
 				<div class="block wow fadeInLeft" data-wow-delay="700ms">
