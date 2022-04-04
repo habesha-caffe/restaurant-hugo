@@ -18,6 +18,11 @@
 				</div>
 			</div>
 			<!-- .col-md-4 close -->
+				{{ if site.Params.footer_image.enable }}
+					{{with site.Params.footer_image.image}}
+						<img class="footer-image" src="{{. | absURL}}" alt="Footer Image">
+					{{end}}
+				{{ else }}
 			<div class="col-md-4">
 				<div class="block wow fadeInLeft" data-wow-delay="700ms">
 					<h3>{{ with site.Params.footer.blogTitle }} {{ . | safeHTML }} {{ end }}</h3>
@@ -37,7 +42,7 @@
 			<!-- .col-md-4 close -->
 			<div class="col-md-4">
 				<div class="block wow fadeInLeft" data-wow-delay="1100ms">
-					<div class="gallary">
+					<div class="gallery">
 						<h3>{{ with site.Params.footer.galleryTitle }} {{ . | safeHTML }} {{ end }}</h3>
 						<ul class="gallery">
 							{{ range site.Params.footer.gallery }}
@@ -60,6 +65,8 @@
 		</div><!-- .row close -->
 	</div><!-- .containe close -->
 </section><!-- #footer close -->
+
+				{{end}}
 {{ end }}
 
 <footer id="footer-bottom">
